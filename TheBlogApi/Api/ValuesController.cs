@@ -10,6 +10,7 @@ using TheBlogApi.Data.Services.Contracts;
 using TheBlogApi.Data.Stores;
 using TheBlogApi.Helpers.Extensions;
 using TheBlogApi.Helpers.Filters;
+using TheBlogApi.Models.DTO;
 using TheBlogApi.Models.Responses;
 
 namespace TheBlogApi.Controllers
@@ -19,11 +20,13 @@ namespace TheBlogApi.Controllers
     {
         private readonly IExceptionHandler _exceptionHandler;
         private readonly IEmailService _emailService;
+        private readonly IBlogService _blogService;
 
-        public ValuesController(IExceptionHandler exceptionHandler, IEmailService emailService)
+        public ValuesController(IExceptionHandler exceptionHandler, IEmailService emailService, IBlogService blogService)
         {
             _exceptionHandler = exceptionHandler;
             _emailService = emailService;
+            _blogService = blogService;
         }
 
         [HttpGet("throw")]
@@ -61,20 +64,34 @@ namespace TheBlogApi.Controllers
 
         // GET api/values
         [HttpGet("")]
-        public IActionResult Get()
+        [AllowAnonymous]
+        public async Task<IActionResult> Get()
         {
-            var some = new List<int>
+            var id = Guid.NewGuid();
+            var photo = new PhotoBaseDTO
             {
-                1, 2, 3, 4
+                Id = Guid.NewGuid(),
+                Title = "test"
             };
-            return Ok(new ApiResponse<int>(some));
+            var blog = new BlogDTO
+            {
+                Id = id,
+                Title = "test",
+                Tags = new string[] { "Some", "Test" }
+            };
+            blog.Photos.Add(photo);
+            var result = await _blogService.CreateAsync(blog);            
+            result = await _blogService.ReadAsync(id);
+            return Ok(new ApiResponse<BlogDTO>(result.Entity));
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        [AllowAnonymous]
+        public async Task<IActionResult> Get(Guid id)
         {
-            return "value";
+            var result = await _blogService.ReadAsync(id);
+            return Ok(new ApiResponse<BlogDTO>(result.Entity));
         }
 
         // POST api/values

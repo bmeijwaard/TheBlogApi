@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace TheBlogApi.Models.DTO
 {
-    public class BlogBaseDTO
+    public class BlogBaseDTO : BaseDTO
     {
-        public Guid Id { get; set; }
         public DateTime PublicationDateUtc { get; set; }
 
         public string Title { get; set; }
@@ -22,6 +21,10 @@ namespace TheBlogApi.Models.DTO
 
     public class BlogDTO : BlogBaseDTO
     {
-        public IList<PhotoBaseDTO> Photos { get; } = new List<PhotoBaseDTO>();
+        public BlogDTO()
+        {
+            Photos = new List<PhotoBaseDTO>();
+        }
+        public IList<PhotoBaseDTO> Photos { get; set; }
     }
 }

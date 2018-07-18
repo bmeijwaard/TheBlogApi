@@ -20,9 +20,14 @@ namespace TheBlogApi.Models.DTO
 
     public class UserDTO : UserBaseDTO
     {
+        public UserDTO()
+        {
+            Photos = new List<PhotoDTO>();
+            Blogs = new List<BlogDTO>();
+        }
         public TenantBaseDTO Tenant { get; set; }
 
-        public IList<PhotoDTO> Photos { get; } = new List<PhotoDTO>();
-        public IList<BlogDTO> Blogs { get; } = new List<BlogDTO>();
+        public IList<PhotoDTO> Photos { get; set; }
+        public IList<BlogDTO> Blogs { get; set; }
     }
 }

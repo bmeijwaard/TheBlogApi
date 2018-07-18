@@ -8,12 +8,8 @@ using System.Threading.Tasks;
 namespace TheBlogApi.Models.Domain
 {
     [Table("Blogs")]
-    public class Blog
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
+    public class Blog : BaseEntity
+    {        
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime PublicationDateUtc { get; set; }
 
@@ -28,7 +24,7 @@ namespace TheBlogApi.Models.Domain
 
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
-        public virtual IList<BlogPhoto> BlogPhotos { get; } = new List<BlogPhoto>();
+        public virtual IList<BlogPhoto> BlogPhotos { get; set; }
 
     }
 }

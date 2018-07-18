@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace TheBlogApi.Models.DTO
 {
-    public class PhotoBaseDTO
+    public class PhotoBaseDTO : BaseDTO
     {
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
 
         public Uri ImageUrl { get; set; }

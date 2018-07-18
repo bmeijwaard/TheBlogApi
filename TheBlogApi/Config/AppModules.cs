@@ -116,6 +116,7 @@ namespace TheBlogApi.Config
             // services
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<IJobRunner, JobRunner>();
             services.AddTransient<IExceptionHandler, ExceptionHandler>();
 
