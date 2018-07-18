@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Base" xml:space="preserve">
+    <value>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;meta content="text/html; charset=utf-8" http-equiv="Content-Type" /&gt;
+    &lt;meta content="width=device-width" name="viewport" /&gt;
+    &lt;title&gt;%%EMAILSUBJECT%%&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+                /* -------------------------------------
+                GLOBAL
+        ------------------------------------- */
+                * {
+                    margin: 0;
+                    padding: 0;
+                    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+                    font-size: 100%;
+                    line-height: 1.6;
+                }
+
+                img {
+                    max-width: 100%;
+                }
+
+                body {
+                    -webkit-font-smoothing: antialiased;
+                    -webkit-text-size-adjust: none;
+                    width: 100% !important;
+                    height: 100%;
+                }
+                /* -------------------------------------
+                ELEMENTS
+        ------------------------------------- */
+                a {
+                    color: #348eda;
+                }
+
+                .btn-primary {
+                    text-decoration: none;
+                    color: #FFF;
+                    background-color: #348eda;
+                    border: solid #348eda;
+                    border-width: 10px 20px;
+                    line-height: 2;
+                    font-weight: bold;
+                    margin-right: 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    display: inline-block;
+                    border-radius: 25px;
+                }
+
+                .btn-secondary {
+                    text-decoration: none;
+                    color: #FFF;
+                    background-color: #aaa;
+                    border: solid #aaa;
+                    border-width: 10px 20px;
+                    line-height: 2;
+                    font-weight: bold;
+                    margin-right: 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    display: inline-block;
+                    border-radius: 25px;
+                }
+
+                .last {
+                    margin-bottom: 0;
+                }
+
+                .first {
+                    margin-top: 0;
+                }
+
+                .padding {
+                    padding: 10px 0;
+                }
+                /* -------------------------------------
+                BODY
+        ------------------------------------- */
+                table.body-wrap {
+                    width: 100%;
+                    padding: 20px;
+                }
+
+                    table.body-wrap .container {
+                        border: 1px solid #f0f0f0;
+                    }
+                /* -------------------------------------
+                FOOTER
+        ------------------------------------- */
+                table.footer-wrap {
+                    width: 100%;
+                    clear: both !important;
+                }
+
+                .footer-wrap .container p {
+                    font-size: 12px;
+                    color: #999;
+                }
+
+                table.footer-wrap a {
+                    color: #999;
+                }
+                /* -------------------------------------
+                TYPOGRAPHY
+        ------------------------------------- */
+                h1, h2, h3 {
+                    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                    line-height: 1.1;
+                    margin-bottom: 15px;
+                    color: #000;
+                    margin: 10px 0 10px;
+                    padding: 10px 0;
+                    line-height: 1.2;
+                    font-weight: 200;
+                    border-bottom: 1px solid #ccc;
+                }
+
+                h1 {
+                    font-size: 36px;
+                }
+
+                h2 {
+                    font-size: 28px;
+                }
+
+                h3 {
+                    font-size: 22px;
+                }
+
+                p, ul, ol {
+                    margin-bottom: 10px;
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+
+                    ul li, ol li {
+                        margin-left: 5px;
+                        list-style-position: inside;
+                    }
+                /* ---------------------------------------------------
+                RESPONSIVENESS
+                Nuke it from orbit. It's the only way to be sure.
+        ------------------------------------------------------ */
+                /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+                .container {
+                    display: block !important;
+                    width: 90%;
+                    max-width: 1200px !important;
+                    margin: 0 auto !important; /* makes it centered */
+                    clear: both !important;
+                    background: #FFFFFF;
+                    border-radius: 15px;
+                }
+                /* Set the padding on the td rather than the div for Outlook compatibility */
+                .body-wrap .container {
+                    padding: 20px;
+                }
+                /* This should also be a block element, so that it will fill 100% of the .container */
+                .content {
+                    margin: 0 auto;
+                    display: block;
+                }                
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#f6f6f6"&gt;
+    &lt;!-- body --&gt;
+    &lt;table class="body-wrap"&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td class="container"&gt;
+                    &lt;!-- content --&gt;
+                    &lt;div class="content"&gt;
+                        &lt;table&gt;
+                            &lt;tbody&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;    
+                                        %%EMAILBODY%%
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                    &lt;!-- /content --&gt;
+                &lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;!-- /body --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="Confirm_Email" xml:space="preserve">
+    <value>Confirm email link &lt;a href="{0}"&gt;here&lt;/a&gt; or follow {0}</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Forgot_Password" xml:space="preserve">
+    <value>Reset password &lt;a href="{0}"&gt;here&lt;/a&gt; or follow {0}</value>
+  </data>
+</root>

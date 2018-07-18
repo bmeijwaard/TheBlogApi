@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>b19c03b1-3458-4f42-9716-617d9bba78ed</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\TheBlogApi\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.0-beta5" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.0-beta5" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TheBlogApi\TheBlogApi.csproj" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <None Update="run.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

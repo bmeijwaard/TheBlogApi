@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <StartupObject>TheBlogApi.Program</StartupObject>
+    <UserSecretsId>b19c03b1-3458-4f42-9716-617d9bba78ed</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.1\TheBlogApi.xml</DocumentationFile>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="AsyncEnumerator" Version="2.2.1" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="4.0.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="protobuf-net" Version="2.3.13" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="3.0.0" />
+    <PackageReference Include="EFCore.BulkExtensions" Version="2.1.6" />
+    <PackageReference Include="LinqKit.Microsoft.EntityFrameworkCore" Version="1.1.15" />
+    <PackageReference Include="MailKit" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="HtmlSanitizer" Version="4.0.185" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Data\Resources\EmailBody.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EmailBody.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Data\Resources\EmailBody.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailBody.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="PostpublishScript" AfterTargets="Publish">
+    <Exec Command="dotnet publish ..\..\jobs\TheBlogApi.Triggered\ -o  $(PublishDir)App_Data\Jobs\Triggered\TheBlogApi.Triggered" />
+    <Exec Command="dotnet publish ..\..\jobs\TheBlogApi.Continuous\ -o  $(PublishDir)App_Data\Jobs\Triggered\TheBlogApi.Continuous" />
+  </Target>
+</Project>
