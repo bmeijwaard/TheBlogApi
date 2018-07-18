@@ -18,33 +18,31 @@ namespace TheBlogApi.Models.Domain
         public override Guid Id { get; set; }
 
         public override string UserName { get; set; }
-
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
 
+        public override string Email { get; set; }
         public override string NormalizedEmail { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime RegisteredDateUTC { get; set; }
 
         public DateTime? AccountConfirmedDateUtc { get; set; }
-
         public override bool EmailConfirmed { get; set; }
 
         public Country Country { get; set; }
-
         public DateTime? BlockedUntilUtc { get; set; }
 
         public string AvatarUrl { get; set; }
-
         public string BackgroundUrl { get; set; }
         
         public override bool LockoutEnabled { get; set; }
-
         public override DateTimeOffset? LockoutEnd { get; set; }
 
         public Guid? TenantId { get; set; }
         public Tenant Tenant { get; set; }
+
+        public virtual IList<Photo> Photos { get; set; }
+        public virtual IList<Blog> Blogs { get; set; }
     }
 }

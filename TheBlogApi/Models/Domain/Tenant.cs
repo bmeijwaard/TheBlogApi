@@ -19,6 +19,5 @@ namespace TheBlogApi.Models.Domain
         public DateTime ExpirationDateUtc { get; set; }
 
         public Guid UserId { get; set; }
-
     }
 }

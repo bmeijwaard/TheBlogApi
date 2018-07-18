@@ -16,6 +16,8 @@ namespace TheBlogApi.Data.Context.Contracts
     {
         DbSet<User> Users { get; }
         DbSet<Tenant> Tenants { get; }
+        DbSet<Blog> Blogs { get; }
+        DbSet<Photo> Photos { get; }
 
         void Dispose();
         DbConnection GetConnection();

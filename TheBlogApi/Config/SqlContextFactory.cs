@@ -11,6 +11,8 @@ namespace TheBlogApi
         {
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: false)
+                .AddUserSecrets<Startup>()
+                .AddEnvironmentVariables()
                 .Build();
 
             var builder = new DbContextOptionsBuilder<SqlContext>();

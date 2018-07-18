@@ -22,6 +22,8 @@ namespace TheBlogApi.Data.Context
         }
 
         public virtual DbSet<Tenant> Tenants { get; set; }
+        public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<Photo> Photos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -32,11 +34,27 @@ namespace TheBlogApi.Data.Context
 
             //set database generated properties
             builder.Entity<User>(c => c.Property(i => i.RegisteredDateUTC).HasDefaultValueSql("GETUTCDATE()"));
+            builder.Entity<Photo>(c => c.Property(i => i.PublicationDateUtc).HasDefaultValueSql("GETUTCDATE()"));
+            builder.Entity<Blog>(c => c.Property(i => i.PublicationDateUtc).HasDefaultValueSql("GETUTCDATE()"));
 
+            // many-to-many coupling
+            builder.Entity<BlogPhoto>().HasKey(t => new { t.BlogId, t.PhotoId });
+
+            builder.Entity<BlogPhoto>()
+                .HasOne(bp => bp.Blog)
+                .WithMany(b => b.BlogPhotos)
+                .HasForeignKey(bp => bp.BlogId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<BlogPhoto>()
+                .HasOne(bp => bp.Photo)
+                .WithMany(p => p.BlogPhotos)
+                .HasForeignKey(bp => bp.PhotoId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
 
-        public IDbContextTransaction BeginTransaction()
+            public IDbContextTransaction BeginTransaction()
         {
             return Database.BeginTransaction();
         }

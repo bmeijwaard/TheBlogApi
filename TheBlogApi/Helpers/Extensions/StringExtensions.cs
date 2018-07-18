@@ -109,5 +109,39 @@ namespace TheBlogApi.Helpers.Extensions
             }
 
         }
+
+        /// <summary>
+        /// Splits a string into a string array.
+        /// </summary>
+        /// <param name="input">The input string.</param>
+        /// <param name="split">Seperator char.</param>
+        /// <returns></returns>
+        public static string[] ToStringArray(this string input, char split)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return new string[0];
+            return input.Split(split, StringSplitOptions.RemoveEmptyEntries);
+        }
+        public static string[] ToStringArray(this string input)
+        {
+            return input.ToStringArray('|');
+        }
+
+
+        /// <summary>
+        /// Joins a string array.
+        /// </summary>
+        /// <param name="input">The input string array.</param>
+        /// <param name="split">Seperator char.</param>
+        /// <returns></returns>     
+        public static string ToArrayString(this string[] input, char split)
+        {
+            if (input.Length == 0) return string.Empty;
+            if (input.Length == 1) return input[0].Trim();
+            return string.Join(split, input);
+        }
+        public static string ToArrayString(this string[] input)
+        {
+            return input.ToArrayString('|');
+        }
     }
 }
