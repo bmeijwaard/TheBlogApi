@@ -5,15 +5,20 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBlogApi", "TheBlogApi\TheBlogApi.csproj", "{0CB65EE1-70C3-477B-93E8-F1BB3B6DF46F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBlogApi.Triggered", "TheBlogApi.Triggered\TheBlogApi.Triggered.csproj", "{1A2725B8-8D2C-4C26-8E57-9A1AD8F6B18A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBlogApi.Triggered", "TheBlogApi.Triggered\TheBlogApi.Triggered.csproj", "{1A2725B8-8D2C-4C26-8E57-9A1AD8F6B18A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBlogApi.Continuous", "TheBlogApi.Continuous\TheBlogApi.Continuous.csproj", "{C71CDD6A-35A6-4DFB-B879-98630FD32C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBlogApi.Continuous", "TheBlogApi.Continuous\TheBlogApi.Continuous.csproj", "{C71CDD6A-35A6-4DFB-B879-98630FD32C89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jobs", "jobs", "{5A9BFA1B-CCDC-4F43-9AE0-336FA85514B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{3390714B-D470-49D2-800C-9B821C66E3D8}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TheBlogApi.Database", "TheBlogApi.Database\TheBlogApi.Database.sqlproj", "{24D701F3-8E98-4B74-A2CA-ECEAA5437450}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A881C4F5-1A10-4A3F-BDE1-A4DEE4D13AA7}"
+	ProjectSection(SolutionItems) = preProject
+		README.MD = README.MD
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
