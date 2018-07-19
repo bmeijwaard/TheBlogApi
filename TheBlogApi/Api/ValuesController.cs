@@ -40,7 +40,7 @@ namespace TheBlogApi.Controllers
             catch (Exception e)
             {
                 var message = $"Something went wrong: {e.Message}";
-                await _exceptionHandler.ProcessExceptionAsync(message, e, "Api controller", e);
+                await _exceptionHandler.ProcessExceptionAsync(message, e, "Api controller");
                 throw;
             }
         }
@@ -57,7 +57,7 @@ namespace TheBlogApi.Controllers
             catch (Exception e)
             {
                 var message = $"Something went wrong: {e.Message}";
-                await _exceptionHandler.ProcessExceptionAsync(message, e, "Api controller", e);
+                await _exceptionHandler.ProcessExceptionAsync(message, e, "Api controller");
                 return StatusCode(500, new ApiResponse(e.Message));
             }
         }

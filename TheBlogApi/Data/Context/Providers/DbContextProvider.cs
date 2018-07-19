@@ -48,7 +48,7 @@ namespace TheBlogApi.Data.Context.Providers
                             return result;
                         }
                         contextTransaction.Rollback();
-                        await _exceptionHandler.ProcessExceptionAsync("An error occured within an entity mutation.", e, "ExecuteTransactionAsync", contextFunc);
+                        await _exceptionHandler.ProcessExceptionAsync("An error occured within an entity mutation.", e, "ExecuteTransactionAsync", result);
                         throw e;
                     }
                 }
