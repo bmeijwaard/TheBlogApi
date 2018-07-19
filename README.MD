@@ -4,8 +4,6 @@
 *Open source* and *free to use*, **blog and photography** REST API in .NET Core 2.1
 
 
-
-
 ### The user secrets *format*
 ```` JSON
 {

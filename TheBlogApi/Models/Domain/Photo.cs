@@ -20,8 +20,8 @@ namespace TheBlogApi.Models.Domain
         public string Category { get; set; }
         public string SubCategory { get; set; }
 
+        public string FileName { get; set; }
         public string ImageUrl { get; set; }
-        public string ThumbnailUrl { get; set; }
 
         public Guid UserId { get; set; }
         public virtual User User { get; set; }

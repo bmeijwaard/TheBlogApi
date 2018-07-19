@@ -8,5 +8,6 @@ namespace TheBlogApi.Data.Stores
     public static class ContainerStore
     {
         public static string PHOTO_CONTAINER => "photo";
+        public static string THUMBNAIL_CONTAINER => "thumb";
     }
 }

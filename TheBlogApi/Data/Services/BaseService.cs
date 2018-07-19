@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheBlogApi.Data.Context.Contracts;
 using TheBlogApi.Data.Context.Providers.Contracts;
 using TheBlogApi.Data.Messages;
 using TheBlogApi.Data.Services.Contracts;
@@ -13,7 +14,7 @@ using TheBlogApi.Models.DTO;
 
 namespace TheBlogApi.Data.Services
 {
-    public abstract class BaseService<TEntity, TDto> : IBaseService<TDto>
+    public abstract class BaseService<TEntity, TDto>
         where TEntity : BaseEntity
         where TDto : BaseDTO
     {
@@ -39,6 +40,11 @@ namespace TheBlogApi.Data.Services
                 return new EntityResponse<TDto>(Mapper.Map<TDto>(entity));
 
             }).ConfigureAwait(false);
+        }
+
+        public virtual async Task<EntityResponse<TDto>> ReadAsync(Guid id)
+        {
+            return await ReadAsync(id, null).ConfigureAwait(false);
         }
 
         protected virtual async Task<EntityResponse<TDto>> ReadAsync(Guid id, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include)
@@ -85,7 +91,29 @@ namespace TheBlogApi.Data.Services
                 return new ServiceResponse();
 
             }).ConfigureAwait(false);
+        }
 
+        protected virtual DbSet<TEntity> Query
+        {
+            get
+            {
+                return _contextProvider.Context.Set<TEntity>();
+            }
+        }
+
+        protected virtual async Task<IServiceResponse> TransactionAsync<T>(Func<IDbContext, Task<T>> contextFunc) where T : IServiceResponse
+        {
+            return await _contextProvider.ExecuteTransactionAsync(contextFunc).ConfigureAwait(false);
+        }
+
+        protected virtual async Task<IEnumerable<TDto>> MapToListAsync(IQueryable<TEntity> query)
+        {
+            return await query.Select(e => Mapper.Map<TDto>(e)).ToListAsync().ConfigureAwait(false);
+        }
+
+        protected virtual async Task<TDto> MapFirstOrDefaultAsync(IQueryable<TEntity> query)
+        {
+            return Mapper.Map<TDto>(await query.FirstOrDefaultAsync().ConfigureAwait(false));
         }
     }
 }
