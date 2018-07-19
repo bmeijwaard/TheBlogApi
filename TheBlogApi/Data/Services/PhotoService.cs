@@ -91,9 +91,9 @@ namespace TheBlogApi.Data.Services
 
             return (ServiceResponse)await TransactionAsync(async context =>
             {
-                var blogPhoto = await context.Set<BlogPhoto>().FirstOrDefaultAsync(bp => bp.PhotoId == id);
-                if (blogPhoto != null)
-                    context.Set<BlogPhoto>().Remove(blogPhoto);
+                var blogPhotos = await context.Set<BlogPhoto>().Where(bp => bp.PhotoId == id).ToListAsync();
+                if (blogPhotos != null && blogPhotos.Count > 0)
+                    context.Set<BlogPhoto>().RemoveRange(blogPhotos);
 
                 context.Photos.Remove(photo);
                 await context.SaveChangesAsync().ConfigureAwait(false);
