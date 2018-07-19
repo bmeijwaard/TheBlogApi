@@ -101,6 +101,11 @@ namespace TheBlogApi.Data.Services
             }
         }
 
+        protected virtual DbSet<T> DbSet<T>() where T : BaseEntity
+        {
+            return _contextProvider.Context.Set<T>();
+        }
+
         protected virtual async Task<IServiceResponse> TransactionAsync<T>(Func<IDbContext, Task<T>> contextFunc) where T : IServiceResponse
         {
             return await _contextProvider.ExecuteTransactionAsync(contextFunc).ConfigureAwait(false);

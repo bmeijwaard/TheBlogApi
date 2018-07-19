@@ -7,5 +7,6 @@ namespace TheBlogApi.Data.Services.Contracts
 {
     public interface IPhotoService : IBaseService<PhotoDTO>
     {
+        Task<EntityResponse<PhotoDTO>> CreateAsync(PhotoDTO dto, Guid blogId);
     }
 }

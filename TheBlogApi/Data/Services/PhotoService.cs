@@ -47,6 +47,42 @@ namespace TheBlogApi.Data.Services
             }).ConfigureAwait(false);
         }
 
+        public async Task<EntityResponse<PhotoDTO>> CreateAsync(PhotoDTO dto, Guid blogId)
+        {
+            var blog = await DbSet<Blog>().FindAsync(blogId).ConfigureAwait(false);
+            if (blog == null)
+                return new EntityResponse<PhotoDTO>($"The entity {nameof(Blog).ToLower()} could not be found with id: {blogId}");            
+
+            return (EntityResponse<PhotoDTO>)await TransactionAsync(async context =>
+            {
+                var photo = Mapper.Map<Photo>(dto);
+                try
+                {
+                    photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, dto.NewPhoto.FileName, dto.NewPhoto).ConfigureAwait(false)).ToString();
+                    photo.FileName = dto.NewPhoto.FileName;
+
+                    await context.Photos.AddAsync(photo).ConfigureAwait(false);
+                    await context.SaveChangesAsync().ConfigureAwait(false);
+
+                    var blogPhoto = new BlogPhoto
+                    {
+                        BlogId = blog.Id,
+                        PhotoId = photo.Id
+                    };
+
+                    await context.Set<BlogPhoto>().AddAsync(blogPhoto).ConfigureAwait(false);
+                    await context.SaveChangesAsync().ConfigureAwait(false);
+
+                    return new EntityResponse<PhotoDTO>(Mapper.Map<PhotoDTO>(photo));
+                }
+                catch
+                {
+                    await _storageProvider.DeleteAsync(ContainerStore.PHOTO_CONTAINER, photo.FileName).ConfigureAwait(false);
+                    throw;
+                }
+            }).ConfigureAwait(false);
+        }
+
         public override async Task<ServiceResponse> DeleteAsync(Guid id)
         {
             var photo = await Query.FindAsync(id).ConfigureAwait(false);
