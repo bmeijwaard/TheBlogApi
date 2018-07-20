@@ -31,8 +31,8 @@ namespace TheBlogApi.Data.Services
                 var photo = Mapper.Map<Photo>(dto);
                 try
                 {
-                    photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, dto.NewPhoto.FileName, dto.NewPhoto).ConfigureAwait(false)).ToString();
-                    photo.FileName = dto.NewPhoto.FileName;
+                    photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, dto.ImageFile.FileName, dto.ImageFile).ConfigureAwait(false)).ToString();
+                    photo.FileName = dto.ImageFile.FileName;
 
                     await context.Photos.AddAsync(photo).ConfigureAwait(false);
                     await context.SaveChangesAsync().ConfigureAwait(false);
@@ -58,8 +58,8 @@ namespace TheBlogApi.Data.Services
                 var photo = Mapper.Map<Photo>(dto);
                 try
                 {
-                    photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, dto.NewPhoto.FileName, dto.NewPhoto).ConfigureAwait(false)).ToString();
-                    photo.FileName = dto.NewPhoto.FileName;
+                    photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, dto.ImageFile.FileName, dto.ImageFile).ConfigureAwait(false)).ToString();
+                    photo.FileName = dto.ImageFile.FileName;
 
                     await context.Photos.AddAsync(photo).ConfigureAwait(false);
                     await context.SaveChangesAsync().ConfigureAwait(false);

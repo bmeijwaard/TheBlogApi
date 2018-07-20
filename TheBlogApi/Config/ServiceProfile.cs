@@ -38,20 +38,20 @@ namespace TheBlogApi.Config
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.Tags.ToArrayString()));
 
             CreateMap<Photo, PhotoDTO>()
-                .ForMember(dest => dest.NewPhoto, opt => opt.Ignore())
+                .ForMember(dest => dest.ImageFile, opt => opt.Ignore())
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => new Uri(src.ImageUrl)))
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.Tags.ToStringArray()));
             CreateMap<PhotoDTO, Photo>()
-                .ForSourceMember(src => src.NewPhoto, opt => opt.Ignore())
+                .ForSourceMember(src => src.ImageFile, opt => opt.Ignore())
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl.ToString()))
                 .ForMember(dest => dest.BlogPhotos, opt => opt.Ignore())
                 .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.Tags.ToArrayString()));
 
             CreateMap<Photo, PhotoBaseDTO>()
-                .ForMember(dest => dest.NewPhoto, opt => opt.Ignore())
+                .ForMember(dest => dest.ImageFile, opt => opt.Ignore())
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => new Uri(src.ImageUrl)));
             CreateMap<PhotoBaseDTO, Photo>()
-                .ForSourceMember(src => src.NewPhoto, opt => opt.Ignore())
+                .ForSourceMember(src => src.ImageFile, opt => opt.Ignore())
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl.ToString()));
         }
     }

@@ -13,6 +13,9 @@ namespace TheBlogApi.Config
 
             CreateMap<PasswordRequest, TokenRequest>();
             CreateMap<TenantRequest, TokenRequest>();
+
+            CreateMap<PhotoRequest, PhotoDTO>();
+            CreateMap<PhotoRequest, PhotoBaseDTO>();
         }
     }
 }

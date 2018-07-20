@@ -5,17 +5,17 @@ namespace TheBlogApi.Helpers.Filters
 {
     public class SanatizeHtmlFilter : ActionFilterAttribute
     {
-        public string PropertyName { get; set; }
-        public string ModelName { get; set; }
+        public string Property { get; set; }
+        public string Model { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
 
-            var formData = context.ActionArguments[ModelName];
-            var dirtyHtml = (string)formData.GetPropertyValue(PropertyName);
+            var formData = context.ActionArguments[Model];
+            var dirtyHtml = (string)formData.GetPropertyValue(Property);
             var cleanHtml = dirtyHtml.SanatizeHtml();
-            formData.SetPropertyValue<string>(PropertyName, cleanHtml);
+            formData.SetPropertyValue<string>(Property, cleanHtml);
         }
     }
 }

@@ -62,11 +62,11 @@ namespace TheBlogApi.Data.Services
                         var photo = await context.Photos.FindAsync(photoDTO.Id).ConfigureAwait(false);
 
                         // else if a new photo is used, process and add a new photo to the context.
-                        if (photo == null && photoDTO.NewPhoto != null)
+                        if (photo == null && photoDTO.ImageFile != null)
                         {
                             photo = Mapper.Map<Photo>(photoDTO);
-                            photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, photoDTO.NewPhoto.FileName, photoDTO.NewPhoto).ConfigureAwait(false)).ToString();
-                            photo.FileName = photoDTO.NewPhoto.FileName;
+                            photo.ImageUrl = (await _storageProvider.SaveFileAndGetUriAsync(ContainerStore.PHOTO_CONTAINER, photoDTO.ImageFile.FileName, photoDTO.ImageFile).ConfigureAwait(false)).ToString();
+                            photo.FileName = photoDTO.ImageFile.FileName;
                             photos.Add(photo);
                             await context.Photos.AddAsync(photo).ConfigureAwait(false);
                             await context.SaveChangesAsync().ConfigureAwait(false);

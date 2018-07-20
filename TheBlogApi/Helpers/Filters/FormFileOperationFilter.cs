@@ -23,16 +23,19 @@ namespace TheBlogApi.Helpers.Filters
             var paramsToRemove = new List<IParameter>();
             var iamgeFileParam = operation.Parameters.FirstOrDefault(param => param.Name == "imageFile");
             if (iamgeFileParam != null)
-            {
                 paramsToRemove.Add(iamgeFileParam);
-            }
+
+            var iamgeFileParams = operation.Parameters.FirstOrDefault(param => param.Name == "imageFiles");
+            if (iamgeFileParams != null)
+                paramsToRemove.Add(iamgeFileParams);
+
 
             foreach (var param in operation.Parameters)
             {
                 paramsToRemove.AddRange(from fileParamName in fileParamNames where param.Name.StartsWith(fileParamName + ".") select param);
             }
             paramsToRemove.ForEach(x => operation.Parameters.Remove(x));
-            ;
+            
             foreach (var paramName in fileParamNames)
             {
                 var fileParam = new NonBodyParameter

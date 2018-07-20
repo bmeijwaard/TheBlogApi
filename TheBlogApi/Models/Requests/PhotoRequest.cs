@@ -1,23 +1,19 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheBlogApi.Models.DTO
+namespace TheBlogApi.Models.Requests
 {
-    public class PhotoBaseDTO : BaseDTO
+    public class PhotoRequest
     {
+        [Required]
         public string Title { get; set; }
 
-        public Uri ImageUrl { get; set; }
-
-        public IFormFile ImageFile { get; set; }
-    }
-
-    public class PhotoDTO : PhotoBaseDTO
-    {
-        public DateTime PublicationDateUtc { get; set; }
+        [Required]
+        public IFormFile ImageFile { get; set; }    
 
         public string Description { get; set; }
         public string[] Tags { get; set; }
